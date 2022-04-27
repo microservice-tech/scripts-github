@@ -41,15 +41,14 @@ function createRepo(){
 	createName "${1}"
 echo "org name: ${ORG_NAME}"
 echo "createName: ${1}"
-#	curl \
-#	  -X POST \
-#	  -u ${GITHUB_USER}:${token} \
-#	  -H "Accept: application/vnd.github.v3+json" \
-#	  https://api.github.com/orgs/${GITHUB_ORG}/repos \
-#	  -d "$(createRepoData)"
+	curl \
+	  -X POST \
+	  -u ${GITHUB_USER}:${token} \
+	  -H "Accept: application/vnd.github.v3+json" \
+	  https://api.github.com/orgs/${GITHUB_ORG}/repos \
+	  -d "$(createRepoData)"
 
-#	cloneRepo "${ORG_NAME}" "${NAME}"
-createRepoData
+	cloneRepo "${ORG_NAME}" "${NAME}"
 }
 
 function createRepoData(){
