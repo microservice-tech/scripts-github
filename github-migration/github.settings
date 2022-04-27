@@ -1,6 +1,6 @@
 WORKDIR=/root/tmp
 
-GITHUB_ORG=microservice-tech
+GITHUB_ORG=<your org>
 GITHUB_USER=xxxxxx
 GITHUB_PASS_SOURCE=github.token
 GITHUB_DESC="Something"
@@ -8,4 +8,4 @@ GITHUB_PRIVATE=true
 GITHUB_HAS_ISSUES=false
 GITHUB_HAS_PROJECTS=false
 GITHUB_HAS_WIKI=false
-GITHUB_REPO_PREFIX=x-legacy-
+GITHUB_REPO_PREFIX=<your prefix>
