@@ -1,6 +1,3 @@
-# scripts-github
-Github administration scripts
-
 ## git_migration.sh
 Quick and dirty script for migrating local raw repositories
 
