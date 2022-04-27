@@ -1,20 +1,10 @@
 #!/bin/bash
 
-WORKDIR=/root/tmp
-
-GITHUB_ORG=microservice-tech
-GITHUB_USER=xxxxxx
-GITHUB_PASS_SOURCE=github.token
-GITHUB_DESC="Something"
-GITHUB_PRIVATE=true
-GITHUB_HAS_ISSUES=false
-GITHUB_HAS_PROJECTS=false
-GITHUB_HAS_WIKI=false
+source github.settings
 
 # Autoconfig
 LOCALREPODIR="${1}"
 GITHUB_TOKEN=$(cat ${GITHUB_PASS_SOURCE})
-echo "TOKEN: ${GITHUB_TOKEN}"
 
 # clone repo and push
 function cloneRepo(){
@@ -39,8 +29,6 @@ function cloneRepo(){
 function createRepo(){
 	ORG_NAME="${LOCALREPODIR}${1}.git"
 	createName "${1}"
-echo "org name: ${ORG_NAME}"
-echo "createName: ${1}"
 	curl \
 	  -X POST \
 	  -u ${GITHUB_USER}:${token} \
@@ -65,7 +53,7 @@ function createName(){
 
 	IFS='.'
 	read -ra NAME_ARR <<<"${1}"
-	NAME="x-legacy-${NAME_ARR[0]}"
+	NAME="${GITHUB_REPO_PREFIX}${NAME_ARR[0]}"
 }
 
 # Clear tmp folder
